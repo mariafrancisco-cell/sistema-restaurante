@@ -1,0 +1,10 @@
+# Arquivos que NÃO precisam ir para dentro da imagem Docker
+# (deixa o build mais rápido e evita levar lixo da sua máquina)
+.git/
+target/
+out/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*-entrega.zip

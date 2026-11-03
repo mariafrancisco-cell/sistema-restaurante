@@ -1,0 +1,29 @@
+# =============================================================================
+# docker-compose do Sistema de Restaurante
+#
+# O sistema é INTERATIVO: ele espera você digitar no teclado (Scanner).
+# Por isso use "run" (abre o terminal ligado ao seu teclado) e não "up":
+#
+#   docker compose run --rm restaurante   -> abre o sistema
+#   docker compose run --rm testes        -> roda os testes do JUnit
+#
+# O "--rm" apaga o container quando ele termina (não acumula lixo).
+# Se mudar o código, acrescente "--build" para reconstruir a imagem:
+#   docker compose run --rm --build restaurante
+# =============================================================================
+
+services:
+  # O programa em si: usa o estágio "final" do Dockerfile (só JRE + .jar)
+  restaurante:
+    build:
+      context: .
+      target: final
+    stdin_open: true   # mantém a entrada aberta (equivale ao "-i" do docker run)
+    tty: true          # cria um terminal de verdade (equivale ao "-t")
+
+  # Os testes: usa o estágio "build", que tem Maven, JDK e o código-fonte
+  testes:
+    build:
+      context: .
+      target: build
+    command: ["mvn", "-B", "test"]

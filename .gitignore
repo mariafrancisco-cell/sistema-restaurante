@@ -1,0 +1,14 @@
+# Arquivos gerados na compilação (o Maven recria tudo com "mvn package")
+target/
+out/
+
+# Configurações das IDEs (IntelliJ, VS Code) — cada pessoa tem as suas
+.idea/
+*.iml
+.vscode/
+
+# Lixo do macOS
+.DS_Store
+
+# Zip gerado pelos scripts de empacotamento
+*-entrega.zip

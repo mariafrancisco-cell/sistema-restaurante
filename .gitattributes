@@ -1,0 +1,4 @@
+# O script Bash precisa de quebra de linha Unix (LF), senão o bash do Windows
+# reclama de "\r: command not found". O de PowerShell fica no padrão do Windows.
+*.sh  text eol=lf
+*.ps1 text eol=crlf
